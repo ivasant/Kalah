@@ -13,9 +13,7 @@ public class StrategyMaxMoveCount extends StrategyBase implements Strategy {
         return i;
       }
     }
-    int optimalPos = -1;
-    int captureSeedCount = 0;
-    optimalPos = getOptimalCapturePos(board, player, storePos, optimalPos, captureSeedCount);
+    int optimalPos = getOptimalCapturePos(board, player);
     return (optimalPos != -1 ? optimalPos : board.getFirstNotEmptyHouse(player.num));
   }
 

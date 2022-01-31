@@ -7,12 +7,10 @@ public class StrategyMaxCaption extends StrategyBase implements Strategy {
 
   @Override
   public int getMove(Board board, Player player) {
-    int optimalPos = -1;
-    int captureSeedCount = 0;
-    int storePos = board.getStorePos(player.num);
-    optimalPos = getOptimalCapturePos(board, player, storePos, optimalPos, captureSeedCount);
+    int optimalPos = getOptimalCapturePos(board, player);
     if (optimalPos != -1)
       return optimalPos;
+    int storePos = board.getStorePos(player.num);
     for (int i = board.getFirstHousePos(player.num); i < storePos; i++) {
       if (board.getSeedCount(i) == (storePos - i)) {
         return i;

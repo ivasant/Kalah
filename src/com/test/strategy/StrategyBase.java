@@ -5,8 +5,10 @@ import com.test.Player;
 
 public abstract class StrategyBase {
 
-  public int getOptimalCapturePos(Board board, Player player, int storePos, int optimalPos, int captureSeedCount) {
-    for (int i = board.getFirstHousePos(player.num); i < storePos; i++) {
+  public int getOptimalCapturePos(Board board, Player player) {
+    int captureSeedCount = -1;
+    int optimalPos = -1;
+    for (int i = board.getFirstHousePos(player.num); i <  board.getStorePos(player.num); i++) {
       if (board.getSeedCount(i) == 0)
         continue;
       int lastPos = board.getLastPosOfMove(i, player.num);
